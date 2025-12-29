@@ -13,7 +13,13 @@ class CalculatorUITests(unittest.TestCase):
     def setUp(self):
         """Настройка браузера перед каждым тестом."""
         options = webdriver.ChromeOptions()
-        options.add_argument("--start-maximized")
+
+        # НАСТРОЙКИ ДЛЯ CI/CD (Headless режим)
+        options.add_argument("--headless")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--window-size=1920,1080")
+
         options.add_argument("--disable-notifications")
 
         service = Service(ChromeDriverManager().install())
@@ -22,7 +28,6 @@ class CalculatorUITests(unittest.TestCase):
         self.driver.get("https://x-calculator.ru/")
 
         self.wait = WebDriverWait(self.driver, 10)
-        # Ждем загрузки экрана калькулятора
         self.wait.until(EC.presence_of_element_located((By.ID, "input")))
 
     def tearDown(self):
