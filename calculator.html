@@ -1,0 +1,1519 @@
+
+<!DOCTYPE html>
+<!--suppress HtmlUnknownTarget -->
+<html lang="ru">
+
+<head>
+
+
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width" name="viewport">
+    <meta content="Калькулятор онлайн. Стандартные математические операции. Сохранение истории вычислений. Поддержка длинных выражений и скобок."
+          name="description">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru">
+    <meta property="og:title" content="Калькулятор онлайн - СТАНДАРТНЫЙ">
+    <meta property="og:description" content="Стандартные математические операции. Сохранение истории вычислений. Поддержка длинных выражений и скобок.">
+    <meta property="og:url" content="https://x-calculator.ru/">
+    <meta property="og:image" content="https://x-calculator.ru/svg/forSnipet5.jpg">
+    <meta property="og:image:width" content="407">
+    <meta property="og:image:height" content="529">
+
+
+    <title>Калькулятор онлайн - СТАНДАРТНЫЙ</title>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Калькулятор онлайн",
+            "url": "https://x-calculator.ru/"
+        }
+    </script>
+
+    <link href="https://x-calculator.ru/svg/favicon120.png" rel="icon">
+    <link href="https://x-calculator.ru/" rel="canonical"/>
+    <!-- Yandex.RTB -->
+    <script>window.yaContextCb = window.yaContextCb || []</script>
+    <script async src="https://yandex.ru/ads/system/context.js"></script>
+
+</head>
+<body>
+<div id="container">
+
+    <div id="logo"><a class="noDecor" href="https://x-calculator.ru/"><span style="color:red;">X</span>-calculator.<span
+            style="color:red;">ru</span></a></div>
+    <div id="title"><h1>Калькулятор</h1>
+        <div id="tooltip">
+            Ошибка!<br>Проверьте введенные данные
+        </div>
+
+    </div>
+
+    <nav>
+        <ul class="ul_for_nav">
+            <li class="li_bottom"><a class="nav-link" href="https://x-calculator.ru/">Калькулятор</a></li>
+            <li class="li_bottom"><a class="nav-link" href="https://x-calculator.ru/procenti">Калькулятор процентов</a>
+            </li>
+            <li class="li_bottom"><a class="nav-link" href="https://x-calculator.ru/vklad">Калькулятор вкладов</a></li>
+            <li class="li_bottom"><a class="nav-link" href="https://x-calculator.ru/credit">Калькулятор кредита</a></li>
+
+            <li class="li_bottom"><a class="nav-link" href="https://x-calculator.ru/ipoteka">Калькулятор ипотеки</a>
+            </li>
+            <li class="li_bottom"><a class="nav-link" href="https://x-calculator.ru/dni">Калькулятор дней</a></li>
+            <li class="li_bottom"><a class="nav-link" href="https://x-calculator.ru/nds">Калькулятор НДС</a></li>
+        </ul>
+    </nav>
+
+    <div id="form">
+        <div id="history">
+            <div id="containerForHistory"></div>
+        </div>
+
+        <textarea aria-label="calculator display" autocomplete="off" id="input" inputmode="none"></textarea>
+
+        <div id="buttons">
+            <div style="position:relative">
+                <div class="btn" id='symbolExponent'><p>&nbsp;a<sup>n</sup></p></div>
+                <div class="displayGrid disabled" id="keyboardExponent">
+                    <div id="titleKeyboardExponent">Введите степень и нажмите OK</div>
+
+                    <div class="btnKeyboardExponent" data-symbol="⁷">7</div>
+                    <div class="btnKeyboardExponent" data-symbol="⁸">8</div>
+                    <div class="btnKeyboardExponent" data-symbol="⁹">9</div>
+
+                    <div class="btnKeyboardExponent" data-symbol="⁴">4</div>
+                    <div class="btnKeyboardExponent" data-symbol="⁵">5</div>
+                    <div class="btnKeyboardExponent" data-symbol="⁶">6</div>
+
+                    <div class="btnKeyboardExponent" data-symbol="¹">1</div>
+                    <div class="btnKeyboardExponent" data-symbol="²">2</div>
+                    <div class="btnKeyboardExponent" data-symbol="³">3</div>
+
+                    <div class="btnKeyboardExponent" data-symbol="⁻">−</div>
+                    <div class="btnKeyboardExponent" data-symbol="⁰">0</div>
+                    <div class="btnKeyboardExponent" id="backspaceExponent">
+                        <svg fill="#000000" height="25px" id="backspace_svg2" transform="matrix(-1, 0, 0, 1, 0, 0)"
+                             version="1.1"
+                             viewBox="0 -4.5 20 20" width="40px"
+                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                            <g stroke-width="0"/>
+
+                            <g stroke-linecap="round" stroke-linejoin="round"/>
+
+                            <g>
+                                <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+                                    <g fill="#000000" transform="translate(-300.000000, -6643.000000)">
+                                        <g transform="translate(56.000000, 160.000000)">
+                                            <polygon id="arrow_right-[#346]"
+                                                     points="264 6488.26683 258.343 6483 256.929 6484.21678 260.172 6487.2264 244 6487.2264 244 6489.18481 260.172 6489.18481 256.929 6492.53046 258.343 6494"></polygon>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+
+                        </svg>
+                    </div>
+                    <div class="btnKeyboardExponent" id="buttonOK">OK</div>
+                </div>
+            </div>
+            <div class="btn margin-right" id='symbolRoot'>√</div>
+            <div class="btn round_btn">7</div>
+            <div class="btn round_btn">8</div>
+            <div class="btn round_btn">9</div>
+
+            <div class="btn" id='symbolDivision'>÷</div>
+            <div class="btn margin-right" id='symbolMultiply'>×</div>
+            <div class="btn round_btn">4</div>
+            <div class="btn round_btn">5</div>
+            <div class="btn round_btn">6</div>
+
+            <div class="btn" id='symbolPlus'>+</div>
+            <div class="btn margin-right" id='symbolMinus'>−</div>
+            <div class="btn round_btn">1</div>
+            <div class="btn round_btn">2</div>
+            <div class="btn round_btn">3</div>
+
+            <div class="btn" id='symbolExclamation'>!</div>
+            <div class="btn margin-right" id='symbolPercent'>%</div>
+            <div class="btn round_btn">,</div>
+            <div class="btn round_btn">0</div>
+            <div class="btn round_btn" id='symbolBackspace'>
+                <div id="marginOfBackspace">
+                    <svg fill="#000000" height="23px" id="backspace_svg1" transform="matrix(-1, 0, 0, 1, 0, 0)"
+                         version="1.1"
+                         viewBox="0 -4.5 20 20" width="40px" xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                        <g stroke-width="0"/>
+
+                        <g stroke-linecap="round" stroke-linejoin="round"/>
+
+                        <g>
+                            <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+                                <g fill="#000000" transform="translate(-300.000000, -6643.000000)">
+                                    <g transform="translate(56.000000, 160.000000)">
+                                        <polygon id="arrow_right-[#346]"
+                                                 points="264 6488.26683 258.343 6483 256.929 6484.21678 260.172 6487.2264 244 6487.2264 244 6489.18481 260.172 6489.18481 256.929 6492.53046 258.343 6494"></polygon>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+
+                    </svg>
+                </div>
+            </div>
+
+            <div class="btn" id='symbolBracket1'>(&nbsp;</div>
+            <div class="btn margin-right" id='symbolBracket2'>&nbsp;)</div>
+            <div class="btn clear" id='symbolClear'>Clear</div>
+            <div class="btn equal" id='symbolEqual'>=</div>
+
+        </div>
+    </div>
+    <div id="sidebar2">
+        <!-- Yandex.RTB R-A-14160471-1 -->
+        <div id="yandex_rtb_R-A-14160471-1"></div>
+        <script>
+            window.yaContextCb.push(() => {
+                Ya.Context.AdvManager.render({
+                    "blockId": "R-A-14160471-1",
+                    "renderTo": "yandex_rtb_R-A-14160471-1"
+                })
+            })
+        </script>
+    </div>
+
+    <main>
+
+        <h2 class="first_H2">Функции калькулятора</h2>
+
+
+        <table>
+
+            <tbody>
+            <tr>
+                <td class='forTable'>a<sup>n</sup></td>
+                <td>возведение в степень</td>
+            </tr>
+            <tr>
+                <td class='forTable'>√</td>
+                <td>квадратный корень</td>
+            </tr>
+            <tr>
+                <td class='forTable'>×</td>
+                <td>умножение</td>
+            </tr>
+            <tr>
+                <td class='forTable'>÷</td>
+                <td>деление</td>
+            </tr>
+            <tr>
+                <td class='forTable'>+</td>
+                <td>сложение</td>
+            </tr>
+            <tr>
+                <td class='forTable'>−</td>
+                <td>вычитание</td>
+            </tr>
+            <tr>
+                <td class='forTable'>!</td>
+                <td>факториал</td>
+            </tr>
+            <tr>
+                <td class='forTable'>%</td>
+                <td>проценты, остаток от деления</td>
+            </tr>
+            <tr>
+                <td class='forTable'>Clear</td>
+                <td>очистить поле ввода</td>
+            </tr>
+            <tr>
+                <td class='forTable'>←</td>
+                <td>удалить один символ</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="padding:9px;">Калькулятор округляет до 15 знаков после запятой</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+
+    </main>
+    <footer>
+        <div><a class="link" href="https://x-calculator.ru/agreement" target="_blank">Пользовательское соглашение</a>
+        </div>
+        <a class="link" href="https://x-calculator.ru/privacy_policy" target="_blank">Политика конфиденциальности</a>
+        <div id="icons"><a class="link" href="https://www.flaticon.com" target="_blank">Icons by
+            flaticon.com</a></div>
+
+    </footer>
+</div>
+
+<menu>
+    <button id="menuID">МЕНЮ&nbsp;<img alt="menu" id="burger" src="svg/burger.svg"></button>
+</menu>
+
+
+<!--suppress CssUnusedSymbol -->
+<style>
+
+    @font-face {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+        src: url("/fonts/Roboto300Latin.woff2") format('woff2');
+    }
+
+    @font-face {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+        src: url("/fonts/Roboto300Rus.woff2") format('woff2');
+    }
+
+    @font-face {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: local("Roboto"), url("/fonts/Roboto400Latin.woff2") format('woff2');
+
+    }
+
+    @font-face {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: local("Roboto"), url("/fonts/Roboto400Rus.woff2") format('woff2');
+
+    }
+
+    @font-face {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url("/fonts/Roboto500Latin.woff2") format('woff2');
+    }
+
+    @font-face {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url("/fonts/Roboto500Rus.woff2") format('woff2');
+    }
+
+    @font-face {
+        font-family: 'Roboto Mono';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: local("Roboto Mono"), url("/fonts/RobotoMono400Rus.woff2") format('woff2');
+    }
+
+    @font-face {
+        font-family: 'Roboto Mono';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: local("Roboto Mono"), url("/fonts/RobotoMono400Latin.woff2") format('woff2');
+    }
+
+    * {
+        font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    h1 {
+        margin: 0;
+        font-size: 32px;
+        font-weight: 400;
+    }
+
+    h2 {
+        text-align: center;
+        font-weight: 500;
+        margin: 15px 0 0 0;
+        font-size: 17px;
+        background: #e6f5ed;
+        border-radius: 5px;
+        padding: 5px 0;
+    }
+
+    h3 {
+        text-align: center;
+        font-weight: 500;
+        margin: 5px 0 0 0;
+        font-size: 15px;
+    }
+
+    nav {
+        margin-right: 75px;
+        grid-column: 1 / 2;
+        grid-row: 2/8;
+        justify-self: end;
+    }
+
+    table {
+        margin: 20px 0 0 0;
+        border-collapse: collapse;
+        width: 560px;
+        font-size: 15px;
+    }
+
+
+    table td {
+        padding: 5px;
+        text-align: center;
+        border: 1px solid #C0C0C0;
+        white-space: nowrap;
+    }
+
+    table th {
+        padding: 5px;
+        text-align: center;
+        border: 1px solid #C0C0C0;
+        white-space: nowrap;
+
+    }
+
+    main {
+        text-align: justify;
+        line-height: 1.5;
+        font-size: 14px;
+        grid-column: 2 / 3;
+        grid-row: 7 / 8;
+        justify-self: center;
+        width: 560px;
+        min-height: 60vh;
+    }
+
+    footer {
+        font-weight: 300;
+        font-size: 11px;
+        color: #9d9d9d;
+        text-align: center;
+        grid-column: 2 / 3;
+        grid-row: 8/9;
+        width: 100%;
+        padding: 5px 0;
+        margin: 20px 0 0 0;
+    }
+
+    menu {
+        display: none;
+    }
+
+    input[type=radio] {
+        cursor: pointer;
+        transform: scale(1.4);
+        margin: 0 3px 0 0;
+    }
+
+    input {
+        color: #0633ee;
+
+    }
+
+    label {
+        cursor: pointer;
+
+    }
+
+
+    p {
+        margin-block-start: 5px;
+        margin-block-end: 0;
+    }
+
+    ul {
+        margin-block-start: 5px;
+        margin-block-end: 0;
+    }
+
+    sup {
+        font-size: 17px;
+    }
+
+
+    ::selection {
+        background: #ebd2ff;
+    }
+
+
+    .li_bottom {
+        margin-bottom: 25px;
+    }
+
+    .ul_for_nav {
+        padding-inline-start: 0;
+        margin-block-start: 0;
+        list-style-type: none;
+    }
+
+
+    .bold {
+        font-weight: 500;
+    }
+
+    .forTable {
+        font-size: 20px;
+    }
+
+
+    .btn {
+        height: 60px;
+        width: 55px;
+        font-size: 27px;
+        border: 1px solid #C0C0C0;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        user-select: none;
+        cursor: pointer;
+        color: black;
+        background: #eaf1ff;
+    }
+
+    .btn:hover {
+        transform: scale(1.03);
+    }
+
+    .round_btn {
+        font-size: 25px;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        background: white;
+    }
+
+    .clear {
+        width: 60px;
+        height: 50px;
+        font-size: 21px;
+        grid-column: 3/4;
+        grid-row: 5/6;
+        align-self: start;
+        background: #dfdfdf;
+        font-weight: 300;
+    }
+
+
+    #symbolBracket1 {
+        grid-column: 1/2;
+        grid-row: 5/6;
+        height: 50px;
+        align-self: start;
+    }
+
+
+    #symbolBracket2 {
+        grid-column: 2/3;
+        grid-row: 5/6;
+        height: 50px;
+        align-self: start;
+        margin-right: 10px;
+    }
+
+    .equal {
+        width: 130px;
+        height: 50px;
+        font-size: 34px;
+        grid-column: 4 / 6;
+        grid-row: 5/6;
+        align-self: start;
+        display: flex;
+        background: #ffb224;
+    }
+
+
+    .nav-link {
+        text-decoration: none;
+        background-color: #F1F7FF;
+        color: #0000CD;
+        border-radius: 3px;
+        padding: 5px;
+        font-family: "Roboto Mono", serif;
+    }
+
+    .nav-link:hover {
+        cursor: pointer;
+        background-color: #27ae60;
+        color: white;
+    }
+
+
+    .link {
+        text-decoration: none;
+        color: #6a6a6a;
+        margin: 0;
+    }
+
+    .noDecor {
+        text-decoration: none;
+        color: black;
+    }
+
+    .margin-right {
+        margin-right: 10px;
+    }
+
+    .first_H2 {
+        margin: 50px 0 0 0;
+        background: #e6f5ed;
+        border-radius: 5px;
+        padding: 5px 0;
+    }
+
+
+    .displayGrid {
+        display: grid;
+    }
+
+
+    .disabled {
+        display: none;
+    }
+
+
+    #container {
+        display: grid;
+        grid-template-columns:  1fr auto 1fr;
+        grid-template-rows: repeat(8, auto);
+    }
+
+    #logo {
+        font-size: 2.4em;
+        justify-self: end;
+        padding: 10px 0;
+        grid-column: 1 / 2;
+        grid-row: 1/2;
+        margin: 0 42px 10px 0;
+
+    }
+
+
+    #title {
+        background: #336699;
+        color: white;
+        text-align: center;
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        justify-self: center;
+        border-radius: 5px 5px 0 0;
+        width: 402px;
+        height: 38px;
+        position: relative;
+    }
+
+
+    #form {
+        border-radius: 0 0 5px 5px;
+        justify-self: center;
+        border: 1px solid #C0C0C0;
+        width: 400px;
+        background: #f7f7f7;
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+        /* данные свойства убирает выделение при нажатии на кнопку на тачскрине*/
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+        -webkit-tap-highlight-color: transparent;
+    }
+
+
+    #history {
+        height: 54px;
+        font-size: 18px;
+        line-height: 1.4;
+        font-weight: 300;
+        color: grey;
+        border-bottom: 1px dotted #C0C0C0;
+        padding: 0 10px;
+        overflow: auto;
+        align-items: flex-end;
+        background: #f7f7f7;
+        position: relative;
+        direction: rtl;
+    }
+
+    #containerForHistory {
+        direction: ltr;
+    }
+
+
+    #tooltip {
+        display: none;
+        background: #ff3a3a;
+        border-radius: 5px;
+        padding: 5px;
+        position: absolute;
+        z-index: 7;
+        top: 43px;
+        right: 96px;
+        font-size: 14px;
+        font-weight: 200;
+        color: white;
+        width: 200px;
+        text-align: center;
+        direction: ltr;
+    }
+
+    #tooltip::after {
+        content: " ";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 6px;
+        border-style: solid;
+        border-color: #ff3a3a transparent transparent transparent;
+    }
+
+
+    #input {
+        height: 39px;
+        width: 380px;
+        font-size: 28px;
+        border: none;
+        outline: none;
+        padding: 5px 10px 0 10px;
+        background-color: white;
+        text-align: right;
+        color: #0633ee;
+        resize: none;
+        display: flex;
+        overflow: hidden;
+    }
+
+    #buttons {
+        padding: 30px 20px 10px 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: repeat(5, 1fr );
+        grid-gap: 9px 0;
+        align-items: center;
+        justify-items: center;
+        border-top: 1px dotted #C0C0C0;
+        position: relative;
+    }
+
+    #backspace_svg1 {
+        -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
+
+    #backspace_svg2 {
+        -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
+
+
+    #symbolBackspace {
+        font-size: 30px;
+    }
+
+    #marginOfBackspace {
+        display: flex;
+    }
+
+    #symbolRoot {
+        font-size: 28px;
+    }
+
+    #symbolExponent {
+        position: relative;
+    }
+
+    #keyboardExponent {
+        position: absolute;
+        top: -22px;
+        left: -1px;
+        background-color: white;
+        border: 1px solid #f7f7f7;
+        grid-gap: 1px;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        z-index: 8;
+    }
+
+
+    #titleKeyboardExponent {
+        grid-column: 1 / 4;
+        grid-row: 1/2;
+        font-size: 17px;
+        background: #eaf1ff;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        border-radius: 3px;
+    }
+
+
+    .btnKeyboardExponent {
+        height: 60px;
+        width: 115px;
+        font-size: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        user-select: none;
+        cursor: pointer;
+        color: black;
+        background: #eaf1ff;
+
+    }
+
+    .btnKeyboardExponent:hover {
+        color: red;
+    }
+
+    #buttonOK {
+        width: 100%;
+        grid-column: 1 / 4;
+        grid-row: 6/7;
+        background: #09c971;
+        color: white;
+        border-radius: 3px;
+    }
+
+    #backspaceExponent {
+        font-size: 30px;
+    }
+
+
+    #icons {
+        font-weight: 300;
+        font-size: 11px;
+        color: #9d9d9d;
+        text-align: center;
+    }
+
+    #sidebar2 {
+        grid-column: 3 / 4;
+        grid-row: 3 / 8;
+        margin: 0 50px 0 50px;
+        max-height: 500px;
+    }
+
+
+    @media (max-width: 1200px) {
+
+        nav {
+            display: none;
+            justify-content: space-between;
+            align-items: flex-end;
+            position: fixed;
+            background: white;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            left: 0;
+            bottom: 0;
+            z-index: 50;
+            flex-direction: column;
+        }
+
+        menu {
+            font-size: 1.5em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: white;
+            height: 70px;
+            padding: 0;
+            margin: 0;
+            z-index: 51;
+            box-shadow: 0 0 3px 0 #C0C0C0;
+        }
+
+
+        input[type=radio] {
+            transform: scale(1.5);
+            margin: 0 3px 0 3px;
+        }
+
+
+        h2 {
+            font-size: 22px;
+        }
+
+        h3 {
+            font-size: 20px;
+        }
+
+
+        main {
+            font-size: 20px;
+        }
+
+        table {
+
+            font-size: 20px;
+        }
+
+        .forTable {
+            font-size: 25px;
+        }
+
+
+        footer {
+
+            margin-bottom: 80px;
+        }
+
+        .ul_for_nav {
+            margin: 0 20px 90px 0;
+            font-size: 1.7em;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .btn {
+            height: 100px;
+            width: 80px;
+            font-size: 40px;
+        }
+
+        .round_btn {
+            height: 100px;
+            width: 100px;
+            font-size: 35px;
+        }
+
+        .equal {
+            width: 214px;
+            height: 80px;
+
+            font-size: 50px;
+        }
+
+        .clear {
+            width: 100px;
+            height: 80px;
+            font-size: 30px;
+        }
+
+        .first_H2 {
+            padding: 10px 0;
+        }
+
+        #buttons {
+            grid-template-columns: 0.8fr 0.8fr 1fr 1fr 1fr;
+            padding: 30px 10px 10px 10px;
+        }
+
+
+        .btnKeyboardExponent {
+            height: 93px;
+            width: 176px;
+            font-size: 35px;
+        }
+
+        #titleKeyboardExponent {
+            font-size: 25px;
+        }
+
+
+        #symbolRoot {
+            font-size: 35px;
+        }
+
+        sup {
+            font-size: 25px;
+        }
+
+
+        #history {
+            height: 75px;
+            font-size: 25px;
+        }
+
+        #containerForHistory {
+            min-height: 75px;
+            display: flex;
+            align-items: flex-end;
+        }
+
+
+        .li_bottom {
+            padding: 10px;
+            margin-bottom: 21px;
+        }
+
+
+        .clock-history {
+            width: 30px;
+            height: 30px;
+        }
+
+        #input {
+            height: 63px;
+            width: 540px;
+            font-size: 50px;
+        }
+
+        #tooltip {
+            padding: 11px 0;
+            top: 49px;
+            right: 105px;
+            font-size: 23px;
+            font-weight: 200;
+            color: white;
+            width: 350px;
+            direction: ltr;
+        }
+
+
+        #navlogo {
+            align-self: center;
+            font-size: 3em;
+            padding: 10px;
+        }
+
+
+        #menuID {
+            font-size: 25px;
+            outline: none;
+            border: none;
+            width: 100px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            color: #0633ee;
+        }
+
+
+        #burger {
+            width: 40px;
+            height: 40px;
+        }
+
+        #cross {
+            width: 40px;
+            height: 40px;
+        }
+
+
+        #logo {
+            display: none;
+            font-size: 3em;
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+            justify-self: center;
+            margin: 0;
+            padding: 10px;
+        }
+
+        #backspace_svg1 {
+            width: 65px;
+            height: 35px;
+        }
+
+        #backspace_svg2 {
+            width: 70px;
+            height: 35px;
+        }
+
+
+        #form {
+            margin: 0 10px;
+            font-size: 1.5em;
+            width: 560px;
+        }
+
+
+        #title {
+            margin-top: 210px;
+            padding: 5px 0;
+            width: 562px;
+        }
+
+
+        #copy-icon {
+            width: 27px;
+            height: 27px;
+        }
+
+        #symbolBracket1, #symbolBracket2 {
+            height: 80px;
+
+        }
+
+        #sidebar2 {
+            position: fixed;
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+            margin: 0 0 5px 0;
+            min-height: 50px;
+            max-height: 200px;
+        }
+    }
+
+
+</style>
+
+<script src="/script/math.js"></script>
+
+<script>
+
+
+    math.config({
+        number: 'BigNumber',
+        precision: 15,
+    })
+
+    if (window.matchMedia("(max-width: 1200px)").matches !== true) {
+        document.getElementById("input").focus()
+    } else {
+        document.querySelector('nav').style.display = "none";
+        document.getElementById("input").focus()
+        increaseTextarea()
+
+
+        /*setTimeout(async () => {
+            const hei = await new Promise(resolve => {
+                const el = document.getElementById('sidebar2');
+                resolve(el ? el.clientHeight : null);
+            });
+            if (hei == 50) {
+            document.getElementById("title").style.marginTop = '30px'}
+        }, 1000);*/
+    }
+
+
+    window.matchMedia("(max-width: 1200px)").addEventListener("change", controlNav);
+    document.getElementById("input").addEventListener('input', handlePressKeyboard);
+    document.getElementById("input").addEventListener("input", increaseTextarea, false);
+    document.getElementById("menuID").addEventListener('click', openMenu);
+    document.getElementById("buttons").addEventListener('click', inputNumber);
+    document.getElementById("keyboardExponent").addEventListener('click', inputNumberExponent);
+
+    document.getElementById("symbolPlus").addEventListener('click', () => {
+        addSymbol('+')
+    });
+    document.getElementById("symbolMinus").addEventListener('click', () => {
+        addSymbol('-')
+    });
+    document.getElementById("symbolMultiply").addEventListener('click', () => {
+        addSymbol('×')
+    });
+    document.getElementById("symbolDivision").addEventListener('click', () => {
+        addSymbol('÷')
+    });
+    document.getElementById("symbolBracket1").addEventListener('click', () => {
+        addSymbol('(')
+    });
+    document.getElementById("symbolBracket2").addEventListener('click', () => {
+        addSymbol(')')
+    });
+
+    document.getElementById("symbolExponent").addEventListener('click', () => {
+        document.getElementById("keyboardExponent").classList.toggle('disabled')
+    });
+
+    document.getElementById("buttonOK").addEventListener('click', () => {
+        document.getElementById("keyboardExponent").classList.toggle('disabled')
+    });
+
+    document.getElementById("symbolRoot").addEventListener('click', () => {
+        addSymbol('√')
+    });
+
+    document.getElementById("symbolPercent").addEventListener('click', () => {
+        addSymbol('%')
+    });
+
+    document.getElementById("symbolExclamation").addEventListener('click', () => {
+        addSymbol('!')
+    });
+
+
+    document.getElementById("symbolClear").addEventListener('click', Clear);
+    document.getElementById("symbolBackspace").addEventListener('click', Backspace);
+    document.getElementById("backspaceExponent").addEventListener('click', Backspace);
+    document.getElementById("input").addEventListener('keydown', (event) => {
+        if (event.key === "Backspace") {
+            event.preventDefault()
+            Backspace()
+        }
+    });
+
+    document.getElementById("input").addEventListener('keydown', (event) => {
+        if (event.key === "Enter") {
+            event.preventDefault()
+            Equal()
+        }
+    });
+
+    document.getElementById("symbolEqual").addEventListener('click', Equal);
+
+
+    let arrayOfRound_btn = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ',']
+
+    let history = ''
+
+
+    function handlePressKeyboard() {
+        let cursorPosition = input.selectionStart
+        let strLength = input.value.length
+        let result = getFormatting(input.value)
+        let newStrLength = result.length
+        input.value = result
+
+        let newCursorPosition = getNewCursorPosition(cursorPosition, strLength, newStrLength, result)
+        input.setSelectionRange(newCursorPosition, newCursorPosition)
+
+    }
+
+    function inputNumber(event) {
+        let value = event.target.innerHTML
+        if (arrayOfRound_btn.includes(value) && event.target.classList.contains('btn') === true) {
+            addSymbol(value)
+        }
+    }
+
+    function inputNumberExponent(event) {
+        try {
+            let value = event.target.getAttribute('data-symbol')
+            if (value === null) {
+                return;
+            }
+            addSymbol(value)
+        } catch {
+        }
+
+    }
+
+
+    function addSymbol(symbol) {
+        let cursorPosition = input.selectionStart
+        let strLength = input.value.length
+        let firstPart = input.value.slice(0, cursorPosition)
+        firstPart = firstPart + symbol
+        let rest = input.value.slice(cursorPosition)
+        let result = firstPart + rest
+        result = getFormatting(result)
+        let newStrLength = result.length
+        input.value = result
+        document.getElementById("input").focus()
+        let newCursorPosition = getNewCursorPosition(cursorPosition, strLength, newStrLength, result)
+        input.setSelectionRange(newCursorPosition, newCursorPosition)
+        increaseTextarea()
+    }
+
+
+    function Clear() {
+        input.value = ''
+        document.getElementById("input").focus()
+        document.getElementById("input").dispatchEvent(new Event('input', {bubbles: true}));
+    }
+
+
+    function Backspace() {
+        let cursorPosition = input.selectionStart
+        let strLength = input.value.length
+        let firstPart = input.value.slice(0, cursorPosition)
+        let buffer = firstPart
+        let symbol = /[^\d\s]\s{0,}$/
+        firstPart = firstPart.replace(/.\s{0,}$/, '')
+        let rest = input.value.slice(cursorPosition)
+        let result = firstPart + rest
+        let ttt = symbol.test(buffer)
+        if (ttt === false) {
+            result = getFormattingForBackspace(result)
+        }
+
+        let newStrLength = result.length
+        input.value = result
+        document.getElementById("input").focus()
+        let newCursorPosition = getNewCursorPosition(cursorPosition - 1, strLength - 1, newStrLength, result)
+        input.setSelectionRange(newCursorPosition, newCursorPosition)
+        increaseTextarea()
+    }
+
+
+    function Equal() {
+        let value = input.value.replace(/×/g, '*').replace(/÷/g, '/').replace(/\^/g, '^').replace(/,/g, ".").replace(/\s/g, "").replace(/√([\d\.]{1,}[⁰¹²³⁴⁵⁶⁷⁸⁹⁻]{0,})/g, "sqrt($1)").replace(/√\((.{1,})\)/g, "sqrt($1)").replace(/√(sqrt\(.{1,}\))/g, "sqrt($1)")
+        value = value.replace(/([⁰¹²³⁴⁵⁶⁷⁸⁹⁻]{1,})/g, `^$1`).replace(/⁰/g, `0`).replace(/¹/g, `1`).replace(/²/g, `2`).replace(/³/g, `3`).replace(/⁴/g, `4`).replace(/⁵/g, `5`).replace(/⁶/g, `6`).replace(/⁷/g, `7`).replace(/⁸/g, `8`).replace(/⁹/g, `9`).replace(/⁻/g, `-`)
+        if (value == '') {
+            return
+        }
+        try {
+            let textFromInput = input.value
+            let result = math.evaluate(value)
+            result = getFormatting(result)
+            input.value = result
+            if (result) {
+                history = `${history} <br>
+           ${textFromInput} = ${result}`
+                document.getElementById("containerForHistory").innerHTML = history
+            }
+            document.getElementById("history").scrollTop = document.getElementById("history").scrollHeight;
+            document.getElementById("input").focus()
+            document.getElementById("input").dispatchEvent(new Event('input', {bubbles: true}));
+        } catch {
+            showTooltip()
+            setTimeout(hideTooltip, 3000)
+        }
+    }
+
+
+    function increaseTextarea() {
+        document.getElementById("input").style.height = 0;
+        let newHeight = document.getElementById("input").scrollHeight;
+        document.getElementById("input").style.height = newHeight + "px";
+    }
+
+    function showTooltip() {
+        document.getElementById('tooltip').style.display = "block"
+    }
+
+
+    function hideTooltip() {
+        document.getElementById('tooltip').style.display = "none"
+    }
+
+
+    function getNewCursorPosition(cursorPosition, strLength, newStrLength, beautyDigit) {
+        let difference = strLength - cursorPosition;
+        let newCursorPosition;
+        // поскольку после форматирования строки может добавиться или удалиться пробел, который разделяет классы числа, пришлось добавить switch
+        switch (true) {
+            case difference === 0:
+                newCursorPosition = newStrLength;
+                break;
+
+            case newStrLength === strLength:
+                newCursorPosition = newStrLength - difference;
+                break;
+
+            case newStrLength > strLength:
+                let array = beautyDigit.split('')
+                if (array[cursorPosition] === " ") {
+                    difference = difference + 1
+                }
+                newCursorPosition = newStrLength - difference;
+                break;
+
+            case newStrLength < strLength:
+                newCursorPosition = newStrLength - difference;
+                if (newCursorPosition < 0) {
+                    newCursorPosition = 0
+                }
+                break;
+        }
+        return newCursorPosition
+    }
+
+
+    function getFormatting(str) {
+        if (typeof str === "number" || typeof str === "object") {
+            str = str.toString()
+        }
+
+        if (str === undefined) {
+            return
+        }
+        str = str.replace(/[^0-9⁰¹²³⁴⁵⁶⁷⁸⁹⁻.,\!\+\-\*\/\(\)√÷×%e\^]/g, '').replace(/\./g, ',').replace(/(\d)\(/g, '$1 × (').replace(/,{1,}/g, ',').replace(/\*/g, '×').replace(/\//g, '÷').replace(/\s{0,}([\+\-÷×])\s{0,}/g, " $1 ")
+        let CommaIndex = str.indexOf(',');
+        if (CommaIndex !== -1) {
+            let array = []
+            let regexForRestV1 = /,\d{0,}/ig
+            let firstPart = str.slice(0, CommaIndex);
+            let rest = str.slice(CommaIndex);
+            let secondPart = regexForRestV1.exec(rest)
+            rest = rest.slice(regexForRestV1.lastIndex);
+            firstPart = firstPart.replace(/(\d)(\s{1,})(\d)/g, "$1$3").replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+            array.push(firstPart)
+            array.push(secondPart)
+            CommaIndex = rest.indexOf(',', CommaIndex)
+
+            while (CommaIndex !== -1) {
+                let regexForRestV2 = /,\d{0,}/ig
+                firstPart = rest.slice(0, CommaIndex);
+                rest = rest.slice(CommaIndex);
+                secondPart = regexForRestV2.exec(rest)
+                rest = rest.slice(regexForRestV2.lastIndex);
+                firstPart = firstPart.replace(/(\d)(\s{1,})(\d)/g, "$1$3").replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+                array.push(firstPart);
+                array.push(secondPart)
+                CommaIndex = rest.indexOf(',', CommaIndex)
+            }
+
+            rest = rest.replace(/(\d)(\s{1,})(\d)/g, "$1$3").replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+            array.push(rest)
+            let sumOfArrayElements = ''
+            for (let i = 0; i < array.length; i++) {
+                sumOfArrayElements += array[i]
+                str = sumOfArrayElements
+            }
+
+        } else {
+            str = str.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+        }
+        return str;
+    }
+
+    function getFormattingForBackspace(str) {
+        if (typeof str === "number") {
+            str = str.toString()
+        }
+
+        if (str === undefined) {
+            return
+        }
+
+        let CommaIndex = str.indexOf(',');
+        if (CommaIndex !== -1) {
+            let array = []
+            let regexForRestV1 = /,\d{0,}/ig
+            let firstPart = str.slice(0, CommaIndex);
+            let rest = str.slice(CommaIndex);
+            let secondPart = regexForRestV1.exec(rest)
+            rest = rest.slice(regexForRestV1.lastIndex);
+            firstPart = firstPart.replace(/(\d)(\s{1,})(\d)/g, "$1$3").replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+            array.push(firstPart)
+            array.push(secondPart)
+            CommaIndex = rest.indexOf(',', CommaIndex)
+
+            while (CommaIndex !== -1) {
+                let regexForRestV2 = /,\d{0,}/ig
+                firstPart = rest.slice(0, CommaIndex);
+                rest = rest.slice(CommaIndex);
+                secondPart = regexForRestV2.exec(rest)
+                rest = rest.slice(regexForRestV2.lastIndex);
+                firstPart = firstPart.replace(/(\d)(\s{1,})(\d)/g, "$1$3").replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+                array.push(firstPart);
+                array.push(secondPart)
+                CommaIndex = rest.indexOf(',', CommaIndex)
+            }
+
+            rest = rest.replace(/(\d)(\s{1,})(\d)/g, "$1$3").replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+            array.push(rest)
+            let sumOfArrayElements = ''
+            for (let i = 0; i < array.length; i++) {
+                sumOfArrayElements += array[i]
+                str = sumOfArrayElements
+            }
+
+        } else {
+            str = str.replace(/(\d)(\s{1,})(\d)/g, "$1$3").replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+        }
+        return str;
+    }
+
+
+    function toDigit(str) {
+        str = str.replace(/\s/g, '').replace(/,/g, '.').replace(/[^0-9.]/g, '')
+        if (str.includes('.')) {
+            str = str.substring(0, 16)
+        } else {
+            str = str.substring(0, 13)
+        }
+        str = +str;
+        return str;
+    }
+
+    // метод toFixed округляет некорректно из-за чисел с плавающей точкой, поэтому применил такой алгоритм
+    function getRounding(digit, length = 2) {
+        let multiplier = 1
+        for (let i = length; i !== 0; i--) {
+            multiplier = multiplier * 10
+        }
+        let roundDigit = Math.round(digit * multiplier) / multiplier;
+        return roundDigit
+    }
+
+
+    function openMenu() {
+
+        if (document.querySelector('nav').style.display === "none") {
+            document.querySelector('nav').style.display = "flex";
+        } else {
+            document.querySelector('nav').style.display = "none";
+        }
+
+        let elem = document.querySelector('nav');
+        let compstyle = getComputedStyle(elem);
+        let img = document.createElement('img');
+        let span1 = document.createElement('span');
+        let span2 = document.createElement('span');
+        span1.innerHTML = "X"
+        span1.style.color = "red";
+        span2.innerHTML = "ru"
+        span2.style.color = "red";
+        let logo = document.createElement('div');
+        logo.id = "navlogo"
+        logo.innerHTML = "-calculator.";
+
+        if (compstyle.display !== "none") {
+            document.getElementById("menuID").innerHTML = "ЗАКРЫТЬ&nbsp;";
+            img.id = "cross";
+            img.src = "svg/cross.svg";
+            document.getElementById("menuID").append(img);
+            document.querySelector('nav').prepend(logo);
+            document.getElementById('navlogo').prepend(span1);
+            document.getElementById('navlogo').append(span2);
+        } else {
+            document.getElementById("menuID").innerHTML = "МЕНЮ&nbsp;";
+            img.id = "burger";
+            img.src = "svg/burger.svg";
+            document.getElementById("menuID").append(img);
+            document.getElementById("navlogo").remove();
+        }
+    }
+
+    function controlNav() {
+        if (window.innerWidth >= 1200) {
+            document.querySelector('nav').style.display = "flex";
+        } else {
+            document.querySelector('nav').style.display = "none";
+        }
+
+        try {
+            document.getElementById("navlogo").remove();
+        } catch {
+
+        }
+    }
+
+
+</script>
+
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=94746607', 'ym');
+
+    ym(94746607, 'init', {ssr:true, webvisor:true, clickmap:true, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/94746607" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+
+
+
+</body>
+
+</html>
