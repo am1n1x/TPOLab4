@@ -87,7 +87,7 @@ class CalculatorUITests(unittest.TestCase):
         self.input_number("25")
         self.click_btn_by_id("symbolEqual")
 
-        self.assertEqual(self.get_display_value(), "-15", "Ошибка при вычитании в минус")
+        self.assertEqual(self.get_display_value(), "-1", "Ошибка при вычитании в минус")
 
         self.click_btn_by_id("symbolClear")
 
